@@ -1,0 +1,7 @@
+<nav class="navbar">
+    <button routerLink="/home" class="btn btn-primary" type="button">Kezdőlap</button>
+    <button routerLink="/register" class="btn btn-success" type="button">Regisztráció</button>
+    <button routerLink="/login" class="btn btn-success" type="button">Bejelentkezés</button>
+    <button routerLink="/users" class="btn btn-success" type="button">Felhasználók</button>
+    <button *ngIf="user" (click)="signOut()" routerLink="/home" class="btn btn-primary" type="button">Kijelentkezés</button>
+</nav>

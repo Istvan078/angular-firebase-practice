@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col">Név</div>
+    <div class="col">E-mail</div>
+    <div class="col">Profilkép</div>
+    <div class="col">Jogosultság</div>
+    <div class="col">Mentés</div>
+</div>
+
+<div *ngFor="let user of users" class="row">
+    <div  class="col">{{user.displayName}}</div>
+    <div  class="col">{{user.email}}</div>
+    <div  class="col"><img src="{{user.photo}}"></div>
+    
+    <div class="col"> 
+           
+        <div class="form-check form-switch">
+            <input [(ngModel)]="user.claims.superAdmin" class="form-check-input" type="checkbox" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Szuper Admin</label>
+        </div>    
+        <div class="form-check form-switch">
+            <input [(ngModel)]="user.claims.admin" class="form-check-input" type="checkbox"  checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Admin</label>
+        </div>    
+        <div class="form-check form-switch">
+            <input [(ngModel)]="user.claims.basic" class="form-check-input" type="checkbox" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Alap felhasználó</label>
+        </div>    
+    </div>
+    <div  class="col">{{user.phoneNumber}}</div>
+    <div class="col"><button (click)="setClaims(user)" class="btn btn-dark" type="button">Felhasználói jogosultságok átállítása</button></div>
+</div>
